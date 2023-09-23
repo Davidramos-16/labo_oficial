@@ -62,12 +62,12 @@
         <footer class="footer">
             <h3 class="title">Creado por: </h3>
             <section class="authors">
-                <p>name</p>
-                <p>name</p>
-                <p>name</p>
-                <p>name</p>
-                <p>name</p>
-                <p>name</p>
+                <p>Hector</p>
+                <p>David</p>
+                <p>Yaritza</p>
+                <p>Hilda</p>
+                <p>Jesus</p>
+                <p>Daniel</p>
             </section>
             <center>
                 <small>UFG 2023</small>
