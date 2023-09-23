@@ -27,6 +27,7 @@
             <table class="table">
                 <thead>
                 <tr>
+                    <th>ID</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
                     <th>E-mail</th>
@@ -50,6 +51,7 @@
                                 newClient.setEstado(obj.getEstado());                
                 %>
                 <tr>
+                    <td><%=newClient.getId()%></td>
                     <td><%=newClient.getNombre()%></td>
                     <td><%=newClient.getApellido()%></td>
                     <td><%=newClient.getEmail()%></td>
