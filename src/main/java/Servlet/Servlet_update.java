@@ -108,7 +108,10 @@ public class Servlet_update extends HttpServlet {
         cln.setEstado(Byte.parseByte(request.getParameter("estado_")));
         
         cn.update(cln.getId(),cln.getNombre(), cln.getApellido(), cln.getEmail(), cln.getTelefono(), cln.getSaldo(), cln.getEstado());
-        
+        String redirectURL = request.getContextPath();
+    
+    // Redirecciona al cliente a la página "test.html"
+    response.sendRedirect(redirectURL);
     }
 
     /**

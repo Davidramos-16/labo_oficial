@@ -84,7 +84,10 @@ public class Servlet_delete extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       
+       String redirectURL = request.getContextPath();
+    
+    // Redirecciona al cliente a la página "test.html"
+    response.sendRedirect(redirectURL);
     }
 
     /**

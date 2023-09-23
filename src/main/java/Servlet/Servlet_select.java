@@ -66,24 +66,9 @@ public class Servlet_select extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Client newClient = new Client();
-        List<Client> lista = con.select();
-        List<Client> listClient = null;
-        listClient = new ArrayList();
-        
-        for (Client obj : lista) {
-
-                newClient.setId(obj.getId());
-                newClient.setNombre(obj.getNombre());
-                newClient.setApellido(obj.getApellido());
-                newClient.setEmail(obj.getEmail());
-                newClient.setTelefono(obj.getTelefono());
-                newClient.setSaldo(obj.getSaldo());
-                newClient.setEstado(obj.getEstado());                
-                listClient.add(newClient);
-            }
-            
-        System.out.println(lista.get(0).getNombre());
+        List<Client> lista = null;
+        lista = con.select();
+ 
         request.setAttribute("listClient", lista);
         RequestDispatcher dispatcher = request.getRequestDispatcher("Select_User.jsp");
         dispatcher.forward(request, response);

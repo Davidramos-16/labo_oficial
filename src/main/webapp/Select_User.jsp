@@ -6,7 +6,9 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.util.List"%>
 <%@page import="Objects.Client"%>
-<% List<Client> listClient = (List<Client>) request.getAttribute("listClient"); %>
+<% List<Client> listClient = null; 
+    listClient = (List<Client>) request.getAttribute("listClient");
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
