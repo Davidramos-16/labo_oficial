@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import BD.Conexion;
 import Objects.Client;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
@@ -61,10 +62,26 @@ public class Servlet_update extends HttpServlet {
             throws ServletException, IOException {
         
         Conexion con = new Conexion();
-        String redirectURL = request.getContextPath() + "/Update_User.jsp";
+        int id = Integer.parseInt(request.getParameter("id"));
+        String nombre = request.getParameter("nombre");
+        String apellido = request.getParameter("apellido");
+        String email = request.getParameter("email");
+        String telefono = request.getParameter("telefono");
+        Double saldo = Double.parseDouble(request.getParameter("saldo"));
+        Byte estado = Byte.parseByte(request.getParameter("estado"));
+        request.setAttribute("id", id);
+        request.setAttribute("nombre", nombre);
+        request.setAttribute("apellido", apellido);
+        request.setAttribute("email", email);
+        request.setAttribute("telefono", telefono);
+        request.setAttribute("saldo", saldo);
+        request.setAttribute("estado", estado);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Update_User.jsp");
+        dispatcher.forward(request, response);
+        //String redirectURL = request.getContextPath() + "/Update_User.jsp";
     
     // Redirecciona al cliente a la página "test.html"
-    response.sendRedirect(redirectURL);
+    //response.sendRedirect(redirectURL);
     }
 
     /**

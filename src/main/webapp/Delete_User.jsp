@@ -3,7 +3,7 @@
     Created on : Sep 23, 2023, 8:09:09 AM
     Author     : dr264
 --%>
-
+<% int id = Integer.parseInt(request.getParameter("id")); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -20,7 +20,7 @@
                 <label>
                     id:
                 </label>
-                <input type="text" name="id_">
+                <input type="text" name="id_" value="<%=id%>">
             </div>
             <button type="submit" class="btnSubmit ">Eliminar</button>
         </form>

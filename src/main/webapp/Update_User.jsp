@@ -4,6 +4,16 @@
     Author     : dr264
 --%>
 
+<% 
+    int id = Integer.parseInt(request.getParameter("id")); 
+    String nombre = request.getParameter("nombre");
+    String apellido = request.getParameter("apellido");
+    String email = request.getParameter("email");
+    String telefono = request.getParameter("telefono");
+    Double saldo = Double.parseDouble(request.getParameter("saldo"));
+    Byte estado = Byte.parseByte(request.getParameter("estado"));
+%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -19,44 +29,44 @@
                 <label>
                     id:
                 </label>
-                <input type="text" name="id_">
+                <input type="text" name="id_" value="<%=id%>">
             </div>
             
             <div class="inputContainer">
                 <label>
                     Nombre:
                 </label>
-                <input type="text" name="nombre_">
+                <input type="text" name="nombre_" value="<%=nombre%>">
             </div>
             <div class="inputContainer">
                 <label>
                     Apellido:
                 </label>
-                <input type="text" name="apellido_">
+                <input type="text" name="apellido_" value="<%=apellido%>">
             </div>
             <div class="inputContainer">
                 <label>
                     Email:
                 </label>
-                <input type="text" name="email_">
+                <input type="text" name="email_" value="<%=email%>">
             </div>
             <div class="inputContainer">
                 <label>
                     Telefono:
                 </label>
-                <input type="text" name="telefono_">
+                <input type="text" name="telefono_" value="<%=telefono%>">
             </div>
             <div class="inputContainer">
                 <label>
                     Saldo:
                 </label>
-                <input type="text" name="saldo_">
+                <input type="text" name="saldo_" value="<%=saldo%>">
             </div>
             <div class="inputContainer">
                 <label>
                     Estado:
                 </label>
-                 <input type="text" name="estado_">
+                 <input type="text" name="estado_" value="<%=estado%>">
             </div>
             <button type="submit" class="btnSubmit">Agregar</button>
         </form>

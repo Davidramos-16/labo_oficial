@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import BD.Conexion;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
@@ -60,10 +61,16 @@ public class Servlet_delete extends HttpServlet {
             throws ServletException, IOException {
         
         Conexion cn = new Conexion();
-        String redirectURL = request.getContextPath() + "/Delete_User.jsp";
+        
+        int id = Integer.parseInt(request.getParameter("id"));
+        
+        request.setAttribute("id", id);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Delete_User.jsp");
+        dispatcher.forward(request, response);
+        //String redirectURL = request.getContextPath() + "/Delete_User.jsp";
     
     // Redirecciona al cliente a la página "test.html"
-    response.sendRedirect(redirectURL);
+    //response.sendRedirect(redirectURL);
     }
 
     /**

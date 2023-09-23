@@ -62,12 +62,20 @@
                             <a href="edit?id=<c:out value='${client.id}' />" class="editUsers btnAction" >Editar</a>
                         </div> -->
                         <form action="Servlet_update" method="GET">
+                            <input type="hidden" name="id" value="<%=newClient.getId()%>">
+                            <input type="hidden" name="nombre" value="<%=newClient.getNombre()%>">
+                            <input type="hidden" name="apellido" value="<%=newClient.getApellido()%>">
+                            <input type="hidden" name="email" value="<%=newClient.getEmail()%>">
+                            <input type="hidden" name="telefono" value="<%=newClient.getTelefono()%>">
+                            <input type="hidden" name="saldo" value="<%=newClient.getSaldo()%>">
+                            <input type="hidden" name="estado" value="<%=newClient.getEstado()%>">
                             <button  class="editUsers btnAction" >Modificar Usuarios</button>
                         </form>
                         <!-- <div>
                             <a href="delete?id=<c:out value='${client.id}' />" class="deleteUsers btnAction">Borrar</a>
                         </div> -->
                         <form action="Servlet_delete" method="GET">
+                            <input type="hidden" name="id" value="<%=newClient.getId()%>">
                             <button  class="deleteUsers btnAction">Eliminar Usuarios</button>
                         </form>
                     </td>
