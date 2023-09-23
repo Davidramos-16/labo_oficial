@@ -18,6 +18,7 @@ import java.util.ArrayList;
  * @author dr264
  */
 import java.util.ArrayList;
+import java.util.List;
 public class Conexion {
     
      private static Connection conn;
@@ -68,11 +69,12 @@ public class Conexion {
             System.out.println("Conexion terminada");
         }
     }
-   public void select()
+   public List<Client> select()
    {
+
        try
        {
-             Client newClient = new Client();
+
            // Define your SQL query
            Statement statement = conn.createStatement();
             
@@ -84,7 +86,7 @@ public class Conexion {
 
             // Process the result set
             while (resultSet.next()) {
-                
+                Client newClient = new Client();
                 boolean estado = resultSet.getBoolean("estado");
                 
                 newClient.setId(resultSet.getInt("id_cliente"));
@@ -96,15 +98,12 @@ public class Conexion {
                 newClient.setEstado((byte)(estado ?1:0));
                 
                 ClientRecord.add(newClient);
-                
-                
-
                
             }
             
-            for (Client obj : ClientRecord) {
-            System.out.println("ID: " + obj.getId() + ", Name: " + obj.getNombre() + ", Apellido: " + obj.getApellido() );
-        }
+            //for (Client obj : ClientRecord) {
+          //  System.out.println("ID: " + obj.getId() + ", Name: " + obj.getNombre() + ", Apellido: " + obj.getApellido() );
+        //}
             
             resultSet.close();
             statement.close();
@@ -114,6 +113,7 @@ public class Conexion {
        {
            e.printStackTrace();
        }
+       return ClientRecord;
    }
    
    public void insert(String nombre_, String apellido_, String email_, String telefono_, double saldo_, byte estado_ )

@@ -3,7 +3,10 @@
     Created on : Sep 23, 2023, 4:50:12 AM
     Author     : hecto
 --%>
-
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
+<%@page import="Objects.Client"%>
+<% List<Client> listClient = (List<Client>) request.getAttribute("listClient"); %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -33,13 +36,25 @@
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="client" items="${listClient}">
+                <%
+                        //List<Client> lista = (ArrayList<Client>).request.getAttribute("listClient");
+
+                        for (Client obj : listClient) {
+                                Client newClient = new Client();
+                                newClient.setId(obj.getId());
+                                newClient.setNombre(obj.getNombre());
+                                newClient.setApellido(obj.getApellido());
+                                newClient.setEmail(obj.getEmail());
+                                newClient.setTelefono(obj.getTelefono());
+                                newClient.setSaldo(obj.getSaldo());
+                                newClient.setEstado(obj.getEstado());                
+                %>
                 <tr>
-                    <td><c:out value="${client.nombre}" /></td>
-                    <td><c:out value="${client.apellido}" /></td>
-                    <td><c:out value="${client.email}" /></td>
-                    <td><c:out value="${client.telefono}" /></td>
-                    <td><c:out value="${client.saldo}" /></td>
+                    <td><%=newClient.getNombre()%></td>
+                    <td><%=newClient.getApellido()%></td>
+                    <td><%=newClient.getEmail()%></td>
+                    <td><%=newClient.getTelefono()%></td>
+                    <td><%=newClient.getSaldo()%></td>
                     <td class="tdAction">
                         <!-- <div>
                             <a href="edit?id=<c:out value='${client.id}' />" class="editUsers btnAction" >Editar</a>
@@ -55,7 +70,7 @@
                         </form>
                     </td>
                 </tr>
-                </c:forEach>
+                <%}%>  
                 </tbody>
             </table>
         </main>

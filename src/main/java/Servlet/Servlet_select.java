@@ -12,6 +12,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import BD.Conexion;
+import Objects.Client;
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 
 /**
  *
@@ -19,6 +23,10 @@ import BD.Conexion;
  */
 @WebServlet(name = "Servlet_select", urlPatterns = {"/Servlet_select"})
 public class Servlet_select extends HttpServlet {
+
+    Conexion con = new Conexion();
+    public Servlet_select() {
+    }
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -58,11 +66,30 @@ public class Servlet_select extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        Conexion con = new Conexion();
+        Client newClient = new Client();
+        List<Client> lista = con.select();
+        List<Client> listClient = null;
+        listClient = new ArrayList();
         
-        con.select();
-        String redirectURL = request.getContextPath() + "/Select_User.jsp";
-        response.sendRedirect(redirectURL);
+        for (Client obj : lista) {
+
+                newClient.setId(obj.getId());
+                newClient.setNombre(obj.getNombre());
+                newClient.setApellido(obj.getApellido());
+                newClient.setEmail(obj.getEmail());
+                newClient.setTelefono(obj.getTelefono());
+                newClient.setSaldo(obj.getSaldo());
+                newClient.setEstado(obj.getEstado());                
+                listClient.add(newClient);
+            }
+            
+        System.out.println(lista.get(0).getNombre());
+        request.setAttribute("listClient", lista);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("Select_User.jsp");
+        dispatcher.forward(request, response);
+        
+        //String redirectURL = request.getContextPath() + "/Select_User.jsp";
+        //response.sendRedirect(redirectURL);
     }
 
     /**
