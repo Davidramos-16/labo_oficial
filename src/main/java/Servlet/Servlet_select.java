@@ -61,6 +61,8 @@ public class Servlet_select extends HttpServlet {
         Conexion con = new Conexion();
         
         con.select();
+        String redirectURL = request.getContextPath() + "/Select_User.jsp";
+        response.sendRedirect(redirectURL);
     }
 
     /**

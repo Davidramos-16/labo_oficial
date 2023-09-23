@@ -10,16 +10,19 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Eliminar Usuario</title>
+        <link rel="stylesheet" href="./css/main.css">
     </head>
     <body>
-        <h1>Eliminar usuario del registro</h1>
-        <form action="Servlet_delete" method="POST">
-            <p>
+        
+        <form action="Servlet_delete" method="POST" class="formulario">
+            <h1>Eliminar usuario del registro</h1>
+            <div class="inputContainer">
                 <label>
                     id:
                 </label>
                 <input type="text" name="id_">
-            </p>
+            </div>
+            <button type="submit" class="btnSubmit ">Eliminar</button>
         </form>
     </body>
 </html>
