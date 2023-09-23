@@ -1,0 +1,9 @@
+Servlet\Servlet_add.class
+Servlet\test.class
+BD\Conexion.class
+Servlet\Servlet_select.class
+Servlet\Servlet_delete.class
+Servlet\Servlet_update.class
+Objects\Client.class
+com\mycompany\lab2_pln0\JAXRSConfiguration.class
+com\mycompany\lab2_pln0\resources\JavaEE8Resource.class
